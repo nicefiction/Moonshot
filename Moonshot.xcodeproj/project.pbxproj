@@ -11,6 +11,7 @@
 		09EFF92F262E91470052870E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EFF92E262E91470052870E /* ContentView.swift */; };
 		09EFF931262E914A0052870E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EFF930262E914A0052870E /* Assets.xcassets */; };
 		09EFF934262E914A0052870E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EFF933262E914A0052870E /* Preview Assets.xcassets */; };
+		09EFF93E262E96270052870E /* GeometryReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EFF93D262E96270052870E /* GeometryReaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		09EFF930262E914A0052870E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09EFF933262E914A0052870E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		09EFF935262E914A0052870E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09EFF93D262E96270052870E /* GeometryReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		09EFF92B262E91470052870E /* Moonshot */ = {
 			isa = PBXGroup;
 			children = (
+				09EFF93C262E92090052870E /* Day39 */,
 				09EFF92C262E91470052870E /* MoonshotApp.swift */,
 				09EFF92E262E91470052870E /* ContentView.swift */,
 				09EFF930262E914A0052870E /* Assets.xcassets */,
@@ -67,6 +70,14 @@
 				09EFF933262E914A0052870E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		09EFF93C262E92090052870E /* Day39 */ = {
+			isa = PBXGroup;
+			children = (
+				09EFF93D262E96270052870E /* GeometryReaderView.swift */,
+			);
+			path = Day39;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 			files = (
 				09EFF92F262E91470052870E /* ContentView.swift in Sources */,
 				09EFF92D262E91470052870E /* MoonshotApp.swift in Sources */,
+				09EFF93E262E96270052870E /* GeometryReaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
