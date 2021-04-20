@@ -13,6 +13,7 @@
 		09EFF934262E914A0052870E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EFF933262E914A0052870E /* Preview Assets.xcassets */; };
 		09EFF93E262E96270052870E /* GeometryReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EFF93D262E96270052870E /* GeometryReaderView.swift */; };
 		09EFF942262E9B3A0052870E /* ScrollingDataWithScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EFF941262E9B3A0052870E /* ScrollingDataWithScrollView.swift */; };
+		09EFF945262EA1AA0052870E /* UsingNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EFF944262EA1AA0052870E /* UsingNavigationLink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		09EFF935262E914A0052870E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09EFF93D262E96270052870E /* GeometryReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReaderView.swift; sourceTree = "<group>"; };
 		09EFF941262E9B3A0052870E /* ScrollingDataWithScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingDataWithScrollView.swift; sourceTree = "<group>"; };
+		09EFF944262EA1AA0052870E /* UsingNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingNavigationLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				09EFF93D262E96270052870E /* GeometryReaderView.swift */,
 				09EFF941262E9B3A0052870E /* ScrollingDataWithScrollView.swift */,
+				09EFF944262EA1AA0052870E /* UsingNavigationLink.swift */,
 			);
 			path = Day39;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09EFF945262EA1AA0052870E /* UsingNavigationLink.swift in Sources */,
 				09EFF92F262E91470052870E /* ContentView.swift in Sources */,
 				09EFF92D262E91470052870E /* MoonshotApp.swift in Sources */,
 				09EFF93E262E96270052870E /* GeometryReaderView.swift in Sources */,
