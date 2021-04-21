@@ -6,13 +6,20 @@ import SwiftUI
 
 struct ContentView: View {
     
+     // /////////////////
+    //  MARK: PROPERTIES
+    
+    let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
+    
+    
+    
      // //////////////////////////
     //  MARK: COMPUTED PROPERTIES
     
     var body: some View {
         
-        Text("Hello, world!")
-            .padding()
+        Text("\(astronauts.count)")
+            .font(.title)
     }
 }
 
