@@ -19,8 +19,30 @@ struct ContentView: View {
     
     var body: some View {
         
-        Text("\(astronauts.count)")
-            .font(.title)
+        NavigationView {
+            //  List(missions) { mission in // PAUL HUDSON
+            List {
+                ForEach(missions) { (mission: Mission) in
+                    NavigationLink(destination : Text("Detailview \(mission.displayName)")) {
+                        HStack {
+                            Image(mission.imageName)
+                                .resizable()
+                                // .aspectRatio(contentMode: .fit)
+                                .scaledToFit()
+                                .frame(width : 44 , height : 44)
+                            VStack(alignment : .leading) {
+                                Text(mission.displayName)
+                                    .font(.headline)
+                                // Text(mission.launchDate ?? "N/A")
+                                Text(mission.formattedLaunchDate)
+                                    .font(.subheadline)
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationBarTitle(Text("Moonshot"))
+        }
     }
 }
 
