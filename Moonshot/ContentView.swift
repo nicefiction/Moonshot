@@ -10,6 +10,7 @@ struct ContentView: View {
     //  MARK: PROPERTIES
     
     let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
+    let missions: [Mission] = Bundle.main.decode("missions.json")
     
     
     

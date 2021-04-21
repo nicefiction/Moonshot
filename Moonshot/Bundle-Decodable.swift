@@ -21,8 +21,19 @@ import Foundation
 
 extension Bundle {
     
-    func decode(_ file: String)
-    -> [Astronaut] {
+    /**
+     Be very careful :
+     There is a big difference between `T` and `[T]` .
+     Remember , `T` is a placeholder for whatever type we ask for ,
+     so if we say “decode an array of astronauts,”
+     then `T` becomes `[Astronaut]` .
+     If we attempt to return `[T]` from `decode()`
+     then we would actually be returning `[[Astronaut]]`
+     – an array of arrays of astronauts !
+     */
+    func decode<T: Codable>(_ file: String)
+    // -> [Astronaut] {
+    -> T {
         
         guard let _url = self.url(forResource : file ,
                                   withExtension : nil)
@@ -40,8 +51,8 @@ extension Bundle {
         let decoder = JSONDecoder()
         
         
-        guard let _loaded = try? decoder.decode([Astronaut].self ,
-                                                from : _data)
+        // guard let _loaded = try? decoder.decode([Astronaut].self , from : _data)
+        guard let _loaded = try? decoder.decode(T.self , from : _data)
         else {
             fatalError("Failed to decode \(file) from the bundle .")
         }

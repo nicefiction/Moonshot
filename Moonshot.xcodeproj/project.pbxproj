@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		096697DC262FF85200827385 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096697DB262FF85200827385 /* Mission.swift */; };
 		09EFF92D262E91470052870E /* MoonshotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EFF92C262E91470052870E /* MoonshotApp.swift */; };
 		09EFF92F262E91470052870E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EFF92E262E91470052870E /* ContentView.swift */; };
 		09EFF931262E914A0052870E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EFF930262E914A0052870E /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		096697DB262FF85200827385 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		09EFF929262E91470052870E /* Moonshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonshot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09EFF92C262E91470052870E /* MoonshotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonshotApp.swift; sourceTree = "<group>"; };
 		09EFF92E262E91470052870E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				09FBE30A262FEDFE007C670E /* astronauts.json */,
 				09FBE309262FEDFE007C670E /* missions.json */,
 				09FBE30E262FEE69007C670E /* Astronaut.swift */,
+				096697DB262FF85200827385 /* Mission.swift */,
 				09FBE312262FEF7B007C670E /* Bundle-Decodable.swift */,
 				09EFF92E262E91470052870E /* ContentView.swift */,
 				09EFF930262E914A0052870E /* Assets.xcassets */,
@@ -178,6 +181,7 @@
 				09FBE313262FEF7B007C670E /* Bundle-Decodable.swift in Sources */,
 				09EFF92D262E91470052870E /* MoonshotApp.swift in Sources */,
 				09EFF93E262E96270052870E /* GeometryReaderView.swift in Sources */,
+				096697DC262FF85200827385 /* Mission.swift in Sources */,
 				09EFF942262E9B3A0052870E /* ScrollingDataWithScrollView.swift in Sources */,
 				09FBE30F262FEE69007C670E /* Astronaut.swift in Sources */,
 			);
