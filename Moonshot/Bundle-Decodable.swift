@@ -89,13 +89,10 @@ extension Bundle {
         dateFormatter.dateFormat = "y-MM-dd"
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         // That tells the decoder to parse dates in the exact format we expect.
-        /* NOTE OLIVIER
-         * In the BetterRest app we applied date styling differently :
-         * let dateFormatter = DateFormatter()
-         * dateFormatter.timeStyle = .long
-         * let dateString = dateFormatter.string(from: Date())
+        /* OLIVIER
+         * Could this relate to the date format in the missions.json file ? ,
+         * "launchDate": "1968-10-11"
          */
-        
         
         // guard let _loaded = try? decoder.decode([Astronaut].self , from : _data)
         guard let _loaded = try? decoder.decode(T.self , from : _data)

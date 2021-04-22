@@ -57,7 +57,14 @@ struct Mission: Codable ,
             dateFormatter.dateStyle = .long
             
             return dateFormatter.string(from : _launchDate)
-            
+            /**
+             `NOTE` OLIVIER
+             Compare this to the BetterRest app :
+             `@State private var wakeUpDate: Date = Date()`
+             `let dateFormatter = DateFormatter()`
+             `dateFormatter.timeStyle = .long`
+             `let dateString = dateFormatter.string(from : wakeUpDate)`
+             */
         } else {
             return "N/A"
         }
