@@ -1,4 +1,4 @@
-//  MissionView.swift
+// MARK: MissionView.swift
 
 import SwiftUI
 
@@ -6,10 +6,30 @@ import SwiftUI
 
 struct MissionView: View {
     
+     // ///////////////////
+    //  MARK: NESTED TYPES
+    
+    struct CrewMember {
+        
+        let role: String
+        let astronaut: Astronaut
+    }
+    /**
+     Because this merged data is only temporary
+     we could use a tuple rather than a struct ,
+     but honestly there isn’t really much difference
+     so we’ll be using a new struct here .
+     */
+    // var crewMember: (role: String , astronaut: Astronaut)
+    
+    
+    
      // /////////////////
     //  MARK: PROPERTIES
     
     let mission: Mission
+    // let matchedCrewMembers: [CrewMember]
+    let astronauts: [CrewMember]
     
     
     
@@ -48,8 +68,60 @@ struct MissionView: View {
                      – then it effectively becomes `Spacer().frame(minWidth: 25)` .
                      */
                 }
+                ForEach(astronauts , id : \.astronaut.id) { (crewMember: CrewMember) in
+                // ForEach(self.astronauts, id: \.role) { crewMember in // PAUL HUDSON
+                    HStack {
+                        Image(crewMember.astronaut.id)
+                            .resizable()
+                            // .scaledToFit()
+                            .frame(width : 83 , height: 60)
+                            .clipShape(Capsule())
+                            .overlay(
+                                Capsule()
+                                    .stroke(lineWidth: 1.0)
+                                    .foregroundColor(.primary))
+                                    // .stroke(Color.primary, lineWidth: 1)) // PAUL HUDSON
+                        VStack(alignment: .leading) {
+                            Text(crewMember.astronaut.name)
+                                .font(.headline)
+                            Text(crewMember.role)
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                }
             }
         }
+    }
+    
+    
+    
+     // //////////////////////////
+    //  MARK: INITIALIZER METHODS
+    
+    init(mission: Mission ,
+         astronauts: [Astronaut]) {
+        
+        self.mission = mission
+        
+        var matchedCrewMembers = Array<CrewMember>()
+        
+        
+        for crewMember in mission.crew {
+            
+            if
+                let _matchedAstronaut = astronauts.first(where : {
+                    return $0.id == crewMember.name
+            }) {
+                matchedCrewMembers.append(CrewMember(role : crewMember.role ,
+                                                     astronaut : _matchedAstronaut))
+            } else {
+                fatalError("Missing \(crewMember) .")
+            }
+        }
+        
+        self.astronauts = matchedCrewMembers
     }
 }
 
@@ -63,10 +135,13 @@ struct MissionView: View {
 struct MissionView_Previews: PreviewProvider {
     
     static let missions: [Mission] = Bundle.main.decode("missions.json")
+    static let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
+    
     
  
     static var previews: some View {
         
-        MissionView(mission: missions[0])
+        MissionView(mission : missions[0] ,
+                    astronauts : astronauts)
     }
 }

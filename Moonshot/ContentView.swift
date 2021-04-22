@@ -23,7 +23,8 @@ struct ContentView: View {
             //  List(missions) { mission in // PAUL HUDSON
             List {
                 ForEach(missions) { (mission: Mission) in
-                    NavigationLink(destination : Text("Detailview \(mission.displayName)")) {
+                    NavigationLink(destination : MissionView(mission : mission ,
+                                                             astronauts : astronauts)) {
                         HStack {
                             Image(mission.imageName)
                                 .resizable()
