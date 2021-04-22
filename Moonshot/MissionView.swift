@@ -69,31 +69,38 @@ struct MissionView: View {
                      */
                 }
                 ForEach(astronauts , id : \.astronaut.id) { (crewMember: CrewMember) in
-                // ForEach(self.astronauts, id: \.role) { crewMember in // PAUL HUDSON
-                    HStack {
-                        Image(crewMember.astronaut.id)
-                            .resizable()
-                            // .scaledToFit()
-                            .frame(width : 83 , height: 60)
-                            .clipShape(Capsule())
-                            .overlay(
-                                Capsule()
-                                    .stroke(lineWidth: 1.0)
-                                    .foregroundColor(.primary))
-                                    // .stroke(Color.primary, lineWidth: 1)) // PAUL HUDSON
-                        VStack(alignment: .leading) {
-                            Text(crewMember.astronaut.name)
-                                .font(.headline)
-                            Text(crewMember.role)
-                                .foregroundColor(.secondary)
-                        }
-                        Spacer()
-                    }
-                    .padding(.horizontal)
+                    // ForEach(self.astronauts, id: \.role) { crewMember in // PAUL HUDSON
+                    NavigationLink(
+                        destination : AstronautView(astronaut : crewMember.astronaut) ,
+                        label : {
+                            HStack {
+                                Image(crewMember.astronaut.id)
+                                    .resizable()
+                                    // .scaledToFit()
+                                    .frame(width : 83 , height: 60)
+                                    .clipShape(Capsule())
+                                    .overlay(
+                                        Capsule()
+                                            .stroke(lineWidth: 1.0)
+                                            .foregroundColor(.primary))
+                                // .stroke(Color.primary, lineWidth: 1)) // PAUL HUDSON
+                                VStack(alignment: .leading) {
+                                    Text(crewMember.astronaut.name)
+                                        .font(.headline)
+                                    Text(crewMember.role)
+                                        .foregroundColor(.secondary)
+                                }
+                                Spacer()
+                            }
+                            .padding(.horizontal)
+                        })
+                        .buttonStyle(PlainButtonStyle()) // Removes the blue link color of the text .
                 }
             }
         }
     }
+    
+
     
     
     
@@ -145,3 +152,82 @@ struct MissionView_Previews: PreviewProvider {
                     astronauts : astronauts)
     }
 }
+
+
+
+ // //////////////////
+//  MARK: OBJECTGRAPH
+
+/**
+ `struct Astronaut: Codable`
+    `let id: String`
+    `let name: String`
+    `let description: String`
+ 
+ `struct Mission: Codable`
+    `struct CrewRole: Codable`
+        `let name: String`
+        `let role: String`
+    `let id: Int`
+    `var launchDate: Date?`
+    `let crew: [CrewRole]`
+    `let description: String`
+ 
+ `struct MissionView: View`
+    `struct CrewMember`
+       `let role: String`
+       `let astronaut: Astronaut`
+    `let mission: Mission`
+    `let astronauts: [CrewMember]`
+ 
+ 
+ 
+ 
+ 
+ 
+ `struct Astronaut: Codable ,`
+                   `Identifiable {`
+     
+     `let id: String`
+     `let name: String`
+     `let description: String`
+ `}`
+ 
+ 
+ 
+ `struct Mission: Codable ,`
+                 `Identifiable {`
+ 
+    `struct CrewRole: Codable {`
+ 
+       `let name: String`
+       `let role: String`
+    `}`
+ 
+ 
+    `let id: Int`
+    `var launchDate: Date?`
+    `let crew: [CrewRole]`
+    `let description: String`
+ 
+ 
+    `var imageName: String { ... }`
+    `var displayName: String { ... }`
+    `var formattedLaunchDate: String { ... }`
+ `}`
+ 
+ 
+ 
+ `struct MissionView: View {`
+ 
+    `struct CrewMember {`
+ 
+       `let role: String`
+       `let astronaut: Astronaut`
+    `}`
+ 
+ 
+    `let mission: Mission`
+    `let astronauts: [CrewMember]`
+ `}`
+ */
