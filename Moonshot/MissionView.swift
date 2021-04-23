@@ -76,8 +76,7 @@ struct MissionView: View {
                     // ForEach(self.astronauts, id: \.role) { crewMember in // PAUL HUDSON
                     NavigationLink(
                         destination : AstronautView(astronaut : crewMember.astronaut ,
-                                                    missions : missions ,
-                                                    completedMissions : missions) ,
+                                                    missions : missions) ,
                         label : {
                             HStack {
                                 Image(crewMember.astronaut.id)

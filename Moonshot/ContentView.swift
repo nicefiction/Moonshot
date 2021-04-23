@@ -6,6 +6,13 @@ import SwiftUI
 
 struct ContentView: View {
     
+     // ////////////////////////
+    //  MARK: PROPERTY WRAPPERS
+    
+    @State private var isShowingCrewMembers: Bool = true
+    
+    
+    
      // /////////////////
     //  MARK: PROPERTIES
     
@@ -36,7 +43,7 @@ struct ContentView: View {
                                 Text(mission.displayName)
                                     .font(.headline)
                                 // Text(mission.launchDate ?? "N/A")
-                                Text(mission.formattedLaunchDate)
+                                Text(isShowingCrewMembers ? astronauts[0].name : mission.formattedLaunchDate)
                                     .font(.subheadline)
                             }
                         }
@@ -62,3 +69,31 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().previewDevice("iPhone 12 Pro")
     }
 }
+
+
+
+// //////////////////
+//  MARK: OBJECTGRAPH
+
+/**
+`struct Astronaut: Codable`
+   `let id: String`
+   `let name: String`
+   `let description: String`
+
+`struct Mission: Codable`
+   `struct CrewRole: Codable`
+       `let name: String`
+       `let role: String`
+   `let id: Int`
+   `var launchDate: Date?`
+   `let crew: [CrewRole]`
+   `let description: String`
+
+`struct MissionView: View`
+   `struct CrewMember`
+      `let role: String`
+      `let astronaut: Astronaut`
+   `let mission: Mission`
+   `let astronauts: [CrewMember]`
+ */

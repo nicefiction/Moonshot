@@ -11,12 +11,29 @@ struct AstronautView: View {
     
     let astronaut: Astronaut
     let missions: [Mission]
-    let completedMissions: [Mission]
+    // let completedMissions: [Mission]
     
     
     
      // //////////////////////////
     //  MARK: COMPUTED PROPERTIES
+    
+    var completedMissions: [Mission] {
+        
+        var matchedMissions = Array<Mission>()
+        
+        
+        for mission in missions {
+            for crewmember in mission.crew {
+                if crewmember.name == astronaut.id {
+                    matchedMissions.append(mission)
+                }
+            }
+        }
+        
+        
+        return matchedMissions
+    }
     
     var body: some View {
         
@@ -57,26 +74,26 @@ struct AstronautView: View {
     
     
     
-    init(astronaut: Astronaut ,
-         missions: [Mission] ,
-         completedMissions: [Mission]) {
-        
-        self.astronaut = astronaut
-        self.missions = missions
-        
-        var matchedMissions = Array<Mission>()
-        
-        
-        for mission in missions {
-            for crewmember in mission.crew {
-                if crewmember.name == astronaut.id {
-                    matchedMissions.append(mission)
-                }
-            }
-        }
-        
-        self.completedMissions = matchedMissions
-    }
+//    init(astronaut: Astronaut ,
+//         missions: [Mission] ,
+//         completedMissions: [Mission]) {
+//
+//        self.astronaut = astronaut
+//        self.missions = missions
+//
+//        var matchedMissions = Array<Mission>()
+//
+//
+//        for mission in missions {
+//            for crewmember in mission.crew {
+//                if crewmember.name == astronaut.id {
+//                    matchedMissions.append(mission)
+//                }
+//            }
+//        }
+//
+//        self.completedMissions = matchedMissions
+//    }
 }
 
 
@@ -94,8 +111,10 @@ struct AstronautView_Previews: PreviewProvider {
     
     static var previews: some View {
         
+//        AstronautView(astronaut : astronauts[0] ,
+//                      missions : missions ,
+//                      completedMissions : missions)
         AstronautView(astronaut : astronauts[0] ,
-                      missions : missions ,
-                      completedMissions : missions)
+                      missions : missions)
     }
 }
