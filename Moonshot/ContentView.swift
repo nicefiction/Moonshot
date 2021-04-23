@@ -42,8 +42,9 @@ struct ContentView: View {
                             VStack(alignment : .leading) {
                                 Text(mission.displayName)
                                     .font(.headline)
-                                // Text(mission.launchDate ?? "N/A")
-                                Text(isShowingCrewMembers ? astronauts[0].name : mission.formattedLaunchDate)
+                                Text(isShowingCrewMembers ? mission.crew.map { (crewMember: Mission.CrewRole) in
+                                            crewMember.name
+                                        }.joined(separator: " , ").capitalized : mission.formattedLaunchDate)
                                     .font(.subheadline)
                             }
                         }
@@ -51,7 +52,7 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle(Text("Moonshot"))
-            .navigationBarItems(trailing: Button(isShowingCrewMembers ? "Show Launchdates" : "Show Crewmembers") {
+            .navigationBarItems(trailing: Button(isShowingCrewMembers ? "Toggle Launchdates" : "Toggle Crewmembers") {
                 isShowingCrewMembers.toggle()
             })
         }
