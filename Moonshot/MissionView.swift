@@ -47,8 +47,11 @@ struct MissionView: View {
                         // Use the GeometryReader to set the maximum width of the image .
                         .frame(maxWidth : geometry.size.width * 0.75)
                         .padding(.top)
-                    Text(mission.description)
+                    Text(mission.formattedLaunchDate)
+                        .font(.headline)
                         .padding()
+                    Text(mission.description)
+                        .padding(.horizontal)
                     Spacer(minLength : 25)
                     /**
                      This ensures the `Spacer` has
