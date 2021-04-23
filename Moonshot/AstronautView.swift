@@ -10,6 +10,8 @@ struct AstronautView: View {
     //  MARK: PROPERTIES
     
     let astronaut: Astronaut
+    let missions: [Mission]
+    let completedMissions: [Mission]
     
     
     
@@ -27,7 +29,12 @@ struct AstronautView: View {
                         .frame(maxWidth : geometryProxy.size.width)
                         // .frame(maxWidth : geometryProxy.size.width) // PAUL HUDSON
                         .clipShape(Capsule())
+                    ForEach(completedMissions , id : \.id) { (completedMission: Mission) in
+                        Text(completedMission.displayName)
+                            .font(.headline)
+                    }
                     Text(astronaut.description)
+                        .padding(.top)
                         // .padding() // PAUL HUDSON
                         // .layoutPriority(1) // This is no longer needed as Apple has solved the bug of clipping the text .
                     /**
@@ -47,6 +54,29 @@ struct AstronautView: View {
         .navigationBarTitle(Text(astronaut.name) ,
                             displayMode:  .inline)
     }
+    
+    
+    
+    init(astronaut: Astronaut ,
+         missions: [Mission] ,
+         completedMissions: [Mission]) {
+        
+        self.astronaut = astronaut
+        self.missions = missions
+        
+        var matchedMissions = Array<Mission>()
+        
+        
+        for mission in missions {
+            for crewmember in mission.crew {
+                if crewmember.name == astronaut.id {
+                    matchedMissions.append(mission)
+                }
+            }
+        }
+        
+        self.completedMissions = matchedMissions
+    }
 }
 
 
@@ -59,10 +89,13 @@ struct AstronautView: View {
 struct AstronautView_Previews: PreviewProvider {
     
     static let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
+    static let missions: [Mission] = Bundle.main.decode("missions.json")
     
     
     static var previews: some View {
         
-        AstronautView(astronaut : astronauts[0])
+        AstronautView(astronaut : astronauts[0] ,
+                      missions : missions ,
+                      completedMissions : missions)
     }
 }
