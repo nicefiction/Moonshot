@@ -11,7 +11,6 @@ struct AstronautView: View {
     
     let astronaut: Astronaut
     let missions: [Mission]
-    // let completedMissions: [Mission]
     
     
     
@@ -22,7 +21,6 @@ struct AstronautView: View {
         
         var matchedMissions = Array<Mission>()
         
-        
         for mission in missions {
             for crewmember in mission.crew {
                 if crewmember.name == astronaut.id {
@@ -31,9 +29,9 @@ struct AstronautView: View {
             }
         }
         
-        
         return matchedMissions
     }
+    
     
     var body: some View {
         
@@ -71,29 +69,6 @@ struct AstronautView: View {
         .navigationBarTitle(Text(astronaut.name) ,
                             displayMode:  .inline)
     }
-    
-    
-    
-//    init(astronaut: Astronaut ,
-//         missions: [Mission] ,
-//         completedMissions: [Mission]) {
-//
-//        self.astronaut = astronaut
-//        self.missions = missions
-//
-//        var matchedMissions = Array<Mission>()
-//
-//
-//        for mission in missions {
-//            for crewmember in mission.crew {
-//                if crewmember.name == astronaut.id {
-//                    matchedMissions.append(mission)
-//                }
-//            }
-//        }
-//
-//        self.completedMissions = matchedMissions
-//    }
 }
 
 
@@ -111,9 +86,6 @@ struct AstronautView_Previews: PreviewProvider {
     
     static var previews: some View {
         
-//        AstronautView(astronaut : astronauts[0] ,
-//                      missions : missions ,
-//                      completedMissions : missions)
         AstronautView(astronaut : astronauts[0] ,
                       missions : missions)
     }

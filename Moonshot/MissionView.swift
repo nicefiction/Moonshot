@@ -28,14 +28,13 @@ struct MissionView: View {
     //  MARK: PROPERTIES
     
     let mission: Mission
-    // let matchedCrewMembers: [CrewMember]
     let astronauts: [CrewMember]
     let missions: [Mission]
     
     
     
-     // /////////////////////////
-    //  MARK: COMPUTED PROPETIES
+     // //////////////////////////
+    //  MARK: COMPUTED PROPERTIES
     
     var body: some View {
         

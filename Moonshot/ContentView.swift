@@ -51,6 +51,9 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle(Text("Moonshot"))
+            .navigationBarItems(trailing: Button(isShowingCrewMembers ? "Show Launchdates" : "Show Crewmembers") {
+                isShowingCrewMembers.toggle()
+            })
         }
     }
 }
@@ -72,7 +75,7 @@ struct ContentView_Previews: PreviewProvider {
 
 
 
-// //////////////////
+ // //////////////////
 //  MARK: OBJECTGRAPH
 
 /**
